@@ -375,7 +375,7 @@
 * Arduino Mega pin assignment
 *
 ****************************************************************************************/
-#if MOTHERBOARD == 3 || MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35 || MOTHERBOARD == 77 || MOTHERBOARD == 67
+#if MOTHERBOARD == 3 || MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35 || MOTHERBOARD == 77 || MOTHERBOARD == 67 || MOTHERBOARD == 671
 #define KNOWN_BOARD 1
 
 //////////////////FIX THIS//////////////
@@ -391,7 +391,7 @@
 // #define RAMPS_V_1_0
 
 
-#if MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35 || MOTHERBOARD == 77 || MOTHERBOARD == 67
+#if MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35 || MOTHERBOARD == 77 || MOTHERBOARD == 67 || MOTHERBOARD == 671
 
   #define LARGE_FLASH true
   
@@ -477,7 +477,7 @@
     #define LED_PIN            13
   #endif
 
-  #if MOTHERBOARD == 33 || MOTHERBOARD == 35 || MOTHERBOARD == 67
+  #if MOTHERBOARD == 33 || MOTHERBOARD == 35 || MOTHERBOARD == 67 || MOTHERBOARD == 671
     #define FAN_PIN            9 // (Sprinter config)
   #else
     #define FAN_PIN            4 // IO pin. Buffer needed
@@ -505,7 +505,7 @@
     #define HEATER_0_PIN       10   // EXTRUDER 1
   #endif
 
-  #if MOTHERBOARD == 33 || MOTHERBOARD == 67
+  #if MOTHERBOARD == 33 || MOTHERBOARD == 67 || MOTHERBOARD == 671
     #define HEATER_1_PIN       -1
   #else
     #define HEATER_1_PIN       9    // EXTRUDER 2 (FAN On Sprinter)
@@ -518,10 +518,16 @@
     #define HEATER_1_PIN       12 
     #define HEATER_2_PIN       6   
   #endif
-
-  #define TEMP_0_PIN         13   // ANALOG NUMBERING
-  #define TEMP_1_PIN         15   // ANALOG NUMBERING
-  #define TEMP_2_PIN         -1   // ANALOG NUMBERING
+  
+  #if MOTHERBOARD == 671
+	#define TEMP_0_PIN         11   // TC1 on shield
+	#define TEMP_1_PIN          4   // TC2 on shield
+	#define TEMP_2_PIN         13   // T0 thermistor on Azteeg X3 motherboard
+  #else
+    #define TEMP_0_PIN         13   // ANALOG NUMBERING
+    #define TEMP_1_PIN         15   // ANALOG NUMBERING
+    #define TEMP_2_PIN         -1   // ANALOG NUMBERING
+#endif
 
   #if MOTHERBOARD == 35
     #define HEATER_BED_PIN     -1    // NO BED
@@ -553,7 +559,7 @@
   #endif
 
   #ifdef TEMP_STAT_LEDS
-    #if MOTHERBOARD == 67
+    #if (MOTHERBOARD == 67) || (MOTHERBOARD == 671)
       #define STAT_LED_RED       6
       #define STAT_LED_BLUE     11
     #endif
