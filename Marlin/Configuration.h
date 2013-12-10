@@ -393,8 +393,12 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 
 // default settings
 
-// for XY - step/mm = (motor steps/rev * microstepping) / (pulley teeth * tooth pitch)
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {200*16/(17.0*2), 200*16/(17.0*2), 200.0*8/8, 48.3/4}  // default steps per unit for Ultimaker
+// Computing steps/mm
+// for XY = (motor steps/rev * microstepping) / (pulley teeth * tooth pitch)
+// for  Z = (motor steps/rev * microstepping) / (screw lead) <-- lead = linear advance per turn
+// for  E = (motor steps/rev * microstepping) / (gear ratio * drive circumference) <-- circumference = filament advance per drive turn
+//  make sure ratios use floating point to avoid integer division!
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {(200*16)/(17*2.0), (200*16)/(17*2.0), (200*8)/8.0, (200*4)/((7*30.23)/51)}
 #define DEFAULT_MAX_FEEDRATE          {15000/60, 5000/60, 1500/60, 4000/60}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {15000, 5000, 1000, 250}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 
