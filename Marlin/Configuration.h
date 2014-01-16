@@ -313,11 +313,11 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 #define max_software_endstops true  // If true, axis won't move to coordinates greater than the defined lengths below.
 
 // Travel limits after homing
-#define X_MAX_POS 110
-#define X_MIN_POS 0
-#define Y_MAX_POS 125
-#define Y_MIN_POS 0
-#define Z_MAX_POS 170
+#define X_MAX_POS 55
+#define X_MIN_POS -50
+#define Y_MAX_POS 60
+#define Y_MIN_POS -60
+#define Z_MAX_POS 120
 #define Z_MIN_POS 0
 
 #define X_MAX_LENGTH (X_MAX_POS - X_MIN_POS)
@@ -408,8 +408,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 // for  E = (motor steps/rev * microstepping) / (gear ratio * drive circumference) <-- circumference = filament advance per drive turn
 //  make sure ratios use floating point to avoid integer division!
 #define DEFAULT_AXIS_STEPS_PER_UNIT   {(200*16)/(17*2.0), (200*16)/(17*2.0), (200*8)/8.0, (200*4)/((7*30.23)/51)}
-#define DEFAULT_MAX_FEEDRATE          {15000/60, 5000/60, 1500/60, 4000/60}    // (mm/sec)
-#define DEFAULT_MAX_ACCELERATION      {15000, 5000, 1000, 250}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
+#define DEFAULT_MAX_FEEDRATE          {5000/60, 5000/60, 1500/60, 4000/60}    // (mm/sec)
+#define DEFAULT_MAX_ACCELERATION      {5000, 2500, 1000, 250}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 
 #define DEFAULT_ACCELERATION          10000   // X, Y, Z and E max acceleration in mm/s^2 for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  10000   // X, Y, Z and E max acceleration in mm/s^2 for retracts
