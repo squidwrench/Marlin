@@ -77,6 +77,8 @@
   #include "pins_MELZI_MAKR3D.h"
 #elif MB(AZTEEG_X3)
   #include "pins_AZTEEG_X3.h"
+#elif MB(AZTEEG_X3_TC)
+  #include "pins_AZTEEG_X3_TC.h"
 #elif MB(AZTEEG_X3_PRO)
   #include "pins_AZTEEG_X3_PRO.h"
 #elif MB(ULTIMAKER)
