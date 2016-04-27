@@ -477,10 +477,10 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 
 // Travel limits after homing
 #define X_MAX_POS 55
-#define X_MIN_POS -50
+#define X_MIN_POS -53.5
 #define Y_MAX_POS 60
 #define Y_MIN_POS -60
-#define Z_MAX_POS 120
+#define Z_MAX_POS 114.3
 #define Z_MIN_POS 0
 
 // @section machine
